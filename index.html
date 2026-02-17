@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráfica à Venda | Diógenes Cezar</title>
+    <meta name="description" content="Gráfica completa à venda. Equipamentos, clientes e faturamento garantido. Fale comigo pelo WhatsApp.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f2557 0%, #1a3a6e 50%, #2a5298 100%);
+            color: #ffffff;
+            min-height: 100vh;
+        }
+        
+        /* Banner no topo - FOTO ESTICADA */
+        .banner-topo {
+            width: 100%;
+            height: 500px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 50px rgba(0,0,0,0.5);
+        }
+        
+        .banner-topo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        
+        .banner-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(15, 37, 87, 0.95), transparent);
+            padding: 3rem 2rem 2rem;
+        }
+        
+        .banner-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .banner-content h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+        
+        .banner-content p {
+            font-size: 1.3rem;
+            color: #d4e5f7;
+        }
+        
+        /* Container principal */
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        
+        /* Badge */
+        .badge {
+            display: inline-block;
+            background: #4a90e2;
+            color: #fff;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            animation: pulse 2s infinite;
+            box-shadow: 0 10px 30px rgba(74, 144, 226, 0.3);
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        /* Título */
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: #ffffff;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        
+        .subtitle {
+            font-size: 1.3rem;
+            color: #d4e5f7;
+            margin-bottom: 3rem;
+            font-weight: 400;
+        }
+        
+        /* Stats rápidos - SEM O VALOR */
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 4rem;
+            flex-wrap: wrap;
+        }
+        
+        .stat {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem 2.5rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(74, 144, 226, 0.3);
+            transition: all 0.3s ease;
+            min-width: 180px;
+        }
+        
+        .stat:hover {
+            transform: translateY(-5px);
+            border-color: #4a90e2;
+            box-shadow: 0 10px 30px rgba(74, 144, 226, 0.3);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #4a90e2;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: #b8d4f1;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+        
+        /* Vídeo YouTube */
+        .video-container {
+            position: relative;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 3rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(74, 144, 226, 0.2);
+            aspect-ratio: 16/9;
+        }
+        
+        .video-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* Informações adicionais */
+        .info-rapida {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            border: 2px solid rgba(74, 144, 226, 0.2);
+        }
+        
+        .info-rapida h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #4a90e2;
+            font-weight: 700;
+        }
+        
+        .info-lista {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+            text-align: left;
+        }
+        
+        .info-lista li {
+            padding: 1rem;
+            color: #e8f2ff;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            font-size: 1.05rem;
+        }
+        
+        .info-lista li:hover {
+            background: rgba(74, 144, 226, 0.2);
+            transform: translateX(5px);
+        }
+        
+        .info-lista li::before {
+            content: '✓';
+            color: #4a90e2;
+            font-weight: 900;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        /* Seção texto do vendedor */
+        .vendedor-texto {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            border: 2px solid rgba(74, 144, 226, 0.2);
+            text-align: left;
+        }
+        
+        .vendedor-texto h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #4a90e2;
+        }
+        
+        .vendedor-texto p {
+            color: #d4e5f7;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        /* Botão WhatsApp Gigante */
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: #25D366;
+            color: #fff;
+            padding: 1.5rem 4rem;
+            border-radius: 60px;
+            font-size: 1.5rem;
+            font-weight: 900;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 40px rgba(37, 211, 102, 0.5);
+            margin-bottom: 2rem;
+        }
+        
+        .whatsapp-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 20px 60px rgba(37, 211, 102, 0.7);
+            background: #20bd5a;
+        }
+        
+        .whatsapp-icon {
+            font-size: 2rem;
+        }
+        
+        /* Footer simples */
+        .footer {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 2px solid rgba(74, 144, 226, 0.2);
+            color: #b8d4f1;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .banner-topo {
+                height: 350px;
+            }
+            
+            .banner-content h1 {
+                font-size: 2rem;
+            }
+            
+            .banner-content p {
+                font-size: 1.1rem;
+            }
+            
+            .banner-overlay {
+                padding: 2rem 1.5rem 1.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .stats {
+                gap: 1.5rem;
+            }
+            
+            .stat {
+                padding: 1rem 1.5rem;
+                min-width: 150px;
+            }
+            
+            .stat-number {
+                font-size: 2.5rem;
+            }
+            
+            .whatsapp-btn {
+                padding: 1.2rem 2.5rem;
+                font-size: 1.2rem;
+            }
+            
+            .info-lista {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .banner-topo {
+                height: 280px;
+            }
+            
+            .banner-content h1 {
+                font-size: 1.6rem;
+            }
+            
+            .banner-content p {
+                font-size: 1rem;
+            }
+            
+            .container {
+                padding: 2rem 1rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .stats {
+                gap: 1rem;
+                flex-direction: column;
+            }
+            
+            .stat {
+                width: 100%;
+            }
+            
+            .stat-number {
+                font-size: 2rem;
+            }
+            
+            .stat-label {
+                font-size: 0.8rem;
+            }
+            
+            .whatsapp-btn {
+                width: 100%;
+                padding: 1rem 2rem;
+                font-size: 1.1rem;
+            }
+            
+            .info-rapida,
+            .vendedor-texto {
+                padding: 1.5rem;
+            }
+            
+            .info-rapida h3,
+            .vendedor-texto h3 {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Banner com foto no topo - ESTICADO -->
+    <div class="banner-topo">
+        <img src="banner-diogenes.png" alt="Diógenes Cezar - Gráfica">
+        <div class="banner-overlay">
+            <div class="banner-content">
+                <h1>Diógenes Cezar</h1>
+                <p>Proprietário • 15 anos de experiência no mercado gráfico</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <!-- Badge -->
+        <div class="badge">🔥 OPORTUNIDADE ÚNICA</div>
+        
+        <!-- Título -->
+        <h2>Gráfica Completa à Venda</h2>
+        <p class="subtitle">Negócio estabelecido, equipamentos completos e clientes fidelizados</p>
+        
+        <!-- Stats - SEM VALOR -->
+        <div class="stats">
+            <div class="stat">
+                <span class="stat-number">15</span>
+                <span class="stat-label">Anos de Mercado</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">300+</span>
+                <span class="stat-label">Clientes Ativos</span>
+            </div>
+        </div>
+        
+        <!-- Vídeo do YouTube -->
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/3or0y6Icl60" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        
+        <!-- Informações Rápidas -->
+        <div class="info-rapida">
+            <h3>O QUE ESTÁ INCLUSO:</h3>
+            <ul class="info-lista">
+                <li>Equipamentos modernos completos</li>
+                <li>Carteira de clientes estabelecida</li>
+                <li>Equipe treinada e qualificada</li>
+                <li>Localização estratégica</li>
+                <li>Faturamento comprovado</li>
+                <li>Contratos recorrentes ativos</li>
+                <li>Sistemas e softwares profissionais</li>
+                <li>Estoque de matéria-prima</li>
+            </ul>
+        </div>
+        
+        <!-- Texto do vendedor -->
+        <div class="vendedor-texto">
+            <h3>Por que estou vendendo?</h3>
+            <p>Após 15 anos dedicados ao crescimento da gráfica, chegou o momento de me aposentar e passar o negócio para alguém que possa dar continuidade ao trabalho construído. A empresa está em pleno funcionamento, com processos estabelecidos, equipe experiente e base sólida de clientes. Fale comigo pelo WhatsApp para conhecer todos os detalhes e negociar as condições!</p>
+        </div>
+        
+        <!-- Botão WhatsApp GIGANTE -->
+        <a href="https://wa.me/5587996286019?text=Olá%20Diógenes!%20Vi%20o%20anúncio%20da%20gráfica%20à%20venda%20e%20quero%20saber%20mais%20detalhes%20e%20negociar." class="whatsapp-btn" target="_blank">
+            <span class="whatsapp-icon">💬</span>
+            FALAR NO WHATSAPP
+        </a>
+        
+        <p style="color: #b8d4f1; font-size: 1rem; font-weight: 500;">
+            Respondo rapidamente • (87) 99628-6019
+        </p>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p style="margin-top: 1rem; font-size: 0.85rem;">
+                © 2025 Diógenes Cezar - Todos os direitos reservados
+            </p>
+        </div>
+    </div>
+
+    <!-- Pixel do Google Ads - ADICIONE SEU ID AQUI -->
+    <!--
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'AW-XXXXXXXXXX');
+    </script>
+    -->
+</body>
+</html>
